@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kiccModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_administrador">
+    <Key>
+      <PropertyRef Name="id_administrador" />
+    </Key>
+    <Property Name="id_administrador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ds_email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ds_login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ds_senha" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ds_nivel_de_acesso" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_categoria">
+    <Key>
+      <PropertyRef Name="id_categoria" />
+    </Key>
+    <Property Name="id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nm_categoria" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ds_categoria" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_cliente">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cd_cpf" Type="Int32" Nullable="false" />
+    <Property Name="nm_cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ds_nivel_de_acesso" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="login" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="senha" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nm_celular" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="nm_telefone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="id_endereco" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tb_compra">
+    <Key>
+      <PropertyRef Name="id_compra" />
+    </Key>
+    <Property Name="id_compra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dt_compra" Type="DateTime" Nullable="false" />
+    <Property Name="id_cliente" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tb_endereco">
+    <Key>
+      <PropertyRef Name="id_endereco" />
+    </Key>
+    <Property Name="id_endereco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cep" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="logradouro" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="numero" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="pais" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_produto">
+    <Key>
+      <PropertyRef Name="id_produto" />
+    </Key>
+    <Property Name="id_produto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nm_produto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ds_produto" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="nm_marca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="vl_preco" Type="Decimal" Nullable="false" />
+    <Property Name="qt_produto" Type="Int32" Nullable="false" />
+    <Property Name="ds_peso" Type="Decimal" />
+    <Property Name="ds_ativo" Type="SByte" />
+    <Property Name="image1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="image2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="image3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="id_categoria" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="kiccEntitiesBanco" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_administrador" EntityType="Self.tb_administrador" />
+    <EntitySet Name="tb_categoria" EntityType="Self.tb_categoria" />
+    <EntitySet Name="tb_cliente" EntityType="Self.tb_cliente" />
+    <EntitySet Name="tb_compra" EntityType="Self.tb_compra" />
+    <EntitySet Name="tb_endereco" EntityType="Self.tb_endereco" />
+    <EntitySet Name="tb_produto" EntityType="Self.tb_produto" />
+  </EntityContainer>
+</Schema>
