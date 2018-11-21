@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="kiccModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="kiccEntitiesBanco.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tb_administrador">
           <Key>
             <PropertyRef Name="id_administrador" />
@@ -28,14 +28,17 @@
             <PropertyRef Name="id_cliente" />
           </Key>
           <Property Name="id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="cd_cpf" Type="int" Nullable="false" />
+          <Property Name="cd_cpf" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="nm_cliente" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="dt_nascimento" Type="date" />
           <Property Name="ds_nivel_de_acesso" Type="enum" />
           <Property Name="login" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="senha" Type="varchar" MaxLength="255" />
           <Property Name="email" Type="varchar" MaxLength="255" />
           <Property Name="nm_celular" Type="varchar" MaxLength="13" />
           <Property Name="nm_telefone" Type="varchar" MaxLength="12" />
+          <Property Name="cartao_de_credito" Type="varchar" MaxLength="60" />
+          <Property Name="ativo" Type="enum" />
           <Property Name="id_endereco" Type="int" />
         </EntityType>
         <EntityType Name="tb_compra">
@@ -74,15 +77,17 @@ warning 6013: The table/view 'def.kicc.tb_envolve' does not have a primary key d
           <Property Name="ds_produto" Type="text" />
           <Property Name="nm_marca" Type="varchar" MaxLength="255" />
           <Property Name="vl_preco" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="vl_preco_promocional" Type="decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="qt_produto" Type="int" Nullable="false" />
           <Property Name="ds_peso" Type="decimal" Precision="5" Scale="2" />
           <Property Name="ds_ativo" Type="tinyint" />
+          <Property Name="dt_validade" Type="date" />
           <Property Name="image1" Type="varchar" MaxLength="255" />
           <Property Name="image2" Type="varchar" MaxLength="255" />
           <Property Name="image3" Type="varchar" MaxLength="255" />
           <Property Name="id_categoria" Type="int" />
         </EntityType>
-        <EntityContainer Name="kiccModelStoreContainer">
+        <EntityContainer Name="kiccEntitiesBancoStoreContainer">
           <EntitySet Name="tb_administrador" EntityType="Self.tb_administrador" Schema="kicc" store:Type="Tables" />
           <EntitySet Name="tb_categoria" EntityType="Self.tb_categoria" Schema="kicc" store:Type="Tables" />
           <EntitySet Name="tb_cliente" EntityType="Self.tb_cliente" Schema="kicc" store:Type="Tables" />
@@ -94,7 +99,7 @@ warning 6013: The table/view 'def.kicc.tb_envolve' does not have a primary key d
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="kiccModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="kiccEntitiesBanco" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="tb_administrador">
           <Key>
             <PropertyRef Name="id_administrador" />
@@ -118,14 +123,17 @@ warning 6013: The table/view 'def.kicc.tb_envolve' does not have a primary key d
             <PropertyRef Name="id_cliente" />
           </Key>
           <Property Name="id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cd_cpf" Type="Int32" Nullable="false" />
+          <Property Name="cd_cpf" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nm_cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dt_nascimento" Type="DateTime" />
           <Property Name="ds_nivel_de_acesso" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
           <Property Name="login" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="senha" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="nm_celular" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="nm_telefone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="cartao_de_credito" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ativo" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
           <Property Name="id_endereco" Type="Int32" />
         </EntityType>
         <EntityType Name="tb_compra">
@@ -157,15 +165,17 @@ warning 6013: The table/view 'def.kicc.tb_envolve' does not have a primary key d
           <Property Name="ds_produto" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <Property Name="nm_marca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="vl_preco" Type="Decimal" Nullable="false" />
+          <Property Name="vl_preco_promocional" Type="Decimal" Nullable="false" />
           <Property Name="qt_produto" Type="Int32" Nullable="false" />
           <Property Name="ds_peso" Type="Decimal" />
           <Property Name="ds_ativo" Type="SByte" />
+          <Property Name="dt_validade" Type="DateTime" />
           <Property Name="image1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="image2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="image3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="id_categoria" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="kiccEntitiesBanco" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="kiccEntitiesProjeto" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tb_administrador" EntityType="Self.tb_administrador" />
           <EntitySet Name="tb_categoria" EntityType="Self.tb_categoria" />
           <EntitySet Name="tb_cliente" EntityType="Self.tb_cliente" />
@@ -178,9 +188,9 @@ warning 6013: The table/view 'def.kicc.tb_envolve' does not have a primary key d
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="kiccModelStoreContainer" CdmEntityContainer="kiccEntitiesBanco">
+        <EntityContainerMapping StorageEntityContainer="kiccEntitiesBancoStoreContainer" CdmEntityContainer="kiccEntitiesProjeto">
           <EntitySetMapping Name="tb_administrador">
-            <EntityTypeMapping TypeName="kiccModel.tb_administrador">
+            <EntityTypeMapping TypeName="kiccEntitiesBanco.tb_administrador">
               <MappingFragment StoreEntitySet="tb_administrador">
                 <ScalarProperty Name="id_administrador" ColumnName="id_administrador" />
                 <ScalarProperty Name="ds_email" ColumnName="ds_email" />
@@ -191,7 +201,7 @@ warning 6013: The table/view 'def.kicc.tb_envolve' does not have a primary key d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_categoria">
-            <EntityTypeMapping TypeName="kiccModel.tb_categoria">
+            <EntityTypeMapping TypeName="kiccEntitiesBanco.tb_categoria">
               <MappingFragment StoreEntitySet="tb_categoria">
                 <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
                 <ScalarProperty Name="nm_categoria" ColumnName="nm_categoria" />
@@ -200,23 +210,26 @@ warning 6013: The table/view 'def.kicc.tb_envolve' does not have a primary key d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_cliente">
-            <EntityTypeMapping TypeName="kiccModel.tb_cliente">
+            <EntityTypeMapping TypeName="kiccEntitiesBanco.tb_cliente">
               <MappingFragment StoreEntitySet="tb_cliente">
                 <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
                 <ScalarProperty Name="cd_cpf" ColumnName="cd_cpf" />
                 <ScalarProperty Name="nm_cliente" ColumnName="nm_cliente" />
+                <ScalarProperty Name="dt_nascimento" ColumnName="dt_nascimento" />
                 <ScalarProperty Name="ds_nivel_de_acesso" ColumnName="ds_nivel_de_acesso" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="senha" ColumnName="senha" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="nm_celular" ColumnName="nm_celular" />
                 <ScalarProperty Name="nm_telefone" ColumnName="nm_telefone" />
+                <ScalarProperty Name="cartao_de_credito" ColumnName="cartao_de_credito" />
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
                 <ScalarProperty Name="id_endereco" ColumnName="id_endereco" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_compra">
-            <EntityTypeMapping TypeName="kiccModel.tb_compra">
+            <EntityTypeMapping TypeName="kiccEntitiesBanco.tb_compra">
               <MappingFragment StoreEntitySet="tb_compra">
                 <ScalarProperty Name="id_compra" ColumnName="id_compra" />
                 <ScalarProperty Name="dt_compra" ColumnName="dt_compra" />
@@ -225,7 +238,7 @@ warning 6013: The table/view 'def.kicc.tb_envolve' does not have a primary key d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_endereco">
-            <EntityTypeMapping TypeName="kiccModel.tb_endereco">
+            <EntityTypeMapping TypeName="kiccEntitiesBanco.tb_endereco">
               <MappingFragment StoreEntitySet="tb_endereco">
                 <ScalarProperty Name="id_endereco" ColumnName="id_endereco" />
                 <ScalarProperty Name="cep" ColumnName="cep" />
@@ -238,16 +251,18 @@ warning 6013: The table/view 'def.kicc.tb_envolve' does not have a primary key d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_produto">
-            <EntityTypeMapping TypeName="kiccModel.tb_produto">
+            <EntityTypeMapping TypeName="kiccEntitiesBanco.tb_produto">
               <MappingFragment StoreEntitySet="tb_produto">
                 <ScalarProperty Name="id_produto" ColumnName="id_produto" />
                 <ScalarProperty Name="nm_produto" ColumnName="nm_produto" />
                 <ScalarProperty Name="ds_produto" ColumnName="ds_produto" />
                 <ScalarProperty Name="nm_marca" ColumnName="nm_marca" />
                 <ScalarProperty Name="vl_preco" ColumnName="vl_preco" />
+                <ScalarProperty Name="vl_preco_promocional" ColumnName="vl_preco_promocional" />
                 <ScalarProperty Name="qt_produto" ColumnName="qt_produto" />
                 <ScalarProperty Name="ds_peso" ColumnName="ds_peso" />
                 <ScalarProperty Name="ds_ativo" ColumnName="ds_ativo" />
+                <ScalarProperty Name="dt_validade" ColumnName="dt_validade" />
                 <ScalarProperty Name="image1" ColumnName="image1" />
                 <ScalarProperty Name="image2" ColumnName="image2" />
                 <ScalarProperty Name="image3" ColumnName="image3" />

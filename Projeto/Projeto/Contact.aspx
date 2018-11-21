@@ -2,17 +2,24 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id_administrador" DataSourceID="EntityDataSourceUsuario">
-        <Columns>
-            <asp:BoundField DataField="id_administrador" HeaderText="id_administrador" ReadOnly="True" SortExpression="id_administrador" />
-            <asp:BoundField DataField="ds_email" HeaderText="ds_email" SortExpression="ds_email" />
-            <asp:BoundField DataField="ds_login" HeaderText="ds_login" SortExpression="ds_login" />
-            <asp:BoundField DataField="ds_senha" HeaderText="ds_senha" SortExpression="ds_senha" />
-            <asp:BoundField DataField="ds_nivel_de_acesso" HeaderText="ds_nivel_de_acesso" SortExpression="ds_nivel_de_acesso" />
-        </Columns>
-    </asp:GridView>
-    
-    <asp:EntityDataSource ID="EntityDataSourceUsuario" runat="server" ConnectionString="name=kiccEntitiesBanco" DefaultContainerName="kiccEntitiesBanco" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="tb_administrador" EntityTypeFilter="tb_administrador">
-    </asp:EntityDataSource>
+   <div>
+
+       <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id_cliente" DataSourceID="EntityDataSource1">
+           <Columns>
+               <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+               <asp:BoundField DataField="cd_cpf" HeaderText="CPF" SortExpression="cd_cpf" />
+               <asp:BoundField DataField="nm_cliente" HeaderText="Nome" SortExpression="nm_cliente" />
+               <asp:BoundField DataField="dt_nascimento" HeaderText="Nascimentop" SortExpression="dt_nascimento" />
+               <asp:BoundField DataField="login" HeaderText="login" SortExpression="login" />
+               <asp:BoundField DataField="senha" HeaderText="senha" SortExpression="senha" />
+               <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
+               <asp:BoundField DataField="nm_celular" HeaderText="Celular" SortExpression="nm_celular" />
+               <asp:BoundField DataField="nm_telefone" HeaderText="Telefone" SortExpression="nm_telefone" />
+               <asp:BoundField DataField="cartao_de_credito" HeaderText="cartao_de_credito" SortExpression="cartao_de_credito" />
+           </Columns>
+       </asp:GridView>
+       <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=kiccEntitiesProjeto" DefaultContainerName="kiccEntitiesProjeto" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="tb_cliente" EntityTypeFilter="tb_cliente">
+       </asp:EntityDataSource>
+   </div>
     
 </asp:Content>

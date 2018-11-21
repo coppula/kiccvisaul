@@ -11,7 +11,7 @@ namespace Projeto
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            kiccEntitiesBanco ef = new kiccEntitiesBanco();
+            kiccEntitiesProjeto ef = new kiccEntitiesProjeto();
             decimal id = Convert.ToInt32(Session["idadministrador"]);
             tb_administrador nivel = ef.tb_administrador.Where(busca => busca.id_administrador == id).FirstOrDefault();
 
@@ -26,7 +26,7 @@ namespace Projeto
 
             else
             {
-                if(nivel.ds_nivel_de_acesso=="2")
+                if(nivel.ds_nivel_de_acesso!="3")
                  Response.Redirect("login.aspx");
             }
 

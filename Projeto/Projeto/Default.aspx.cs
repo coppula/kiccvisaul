@@ -12,30 +12,44 @@ namespace Projeto
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (Session["idadministrador"] == null)
-            {
-                Response.Redirect("Login.aspx");
-            }
+            //if (Session["idadministrador"] == null)
+            //{
+             //   Response.Redirect("Login.aspx");
+            //}
+
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            String nome = txtNome.Text;
-            String descr = txtDescr.Text;
-            String marca = TxtMarca.Text;
-            Decimal valor =Decimal.Parse(txtValor.Text);
+            string nome = txtNome.Text;
+            string descr = txtDescr.Text;
+             string marca = TxtMarca.Text;
+
+            decimal valor = Convert.ToDecimal(txtValor.Text.Replace(',', ' '));
+
+            decimal valorPromo = Convert.ToDecimal(txtPromo.Text.Replace(',', '.'));
             int  qtd = int.Parse(txtQuant.Text);
-            Decimal peso = Decimal.Parse(txtPeso.Text);
-            kiccEntitiesBanco ef = new kiccEntitiesBanco();
+            decimal peso = decimal.Parse(txtPeso.Text.Replace(',', '.'));
+            int categoria = droplist.SelectedIndex;
+            DateTime validade = Convert.ToDateTime(txtValidade.Text);
+            
+            kiccEntitiesProjeto ef = new kiccEntitiesProjeto();
             tb_produto produto = ef.tb_produto.Create();
 
             produto.nm_produto = nome;
             produto.ds_produto = descr;
             produto.nm_marca = marca;
             produto.vl_preco = valor;
+            produto.vl_preco_promocional = valorPromo;
             produto.qt_produto = qtd;
             produto.ds_peso = peso;
             produto.id_categoria = 2;
+            produto.dt_validade = validade;
+            produto.id_categoria = categoria+1;
+            
+
+            
 
 
             ef.tb_produto.Add(produto);
@@ -72,12 +86,7 @@ namespace Projeto
             }
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-       
+        
     }
     
 }

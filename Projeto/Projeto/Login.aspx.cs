@@ -11,6 +11,7 @@ namespace Projeto
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
 
         }
 
@@ -20,7 +21,7 @@ namespace Projeto
         {
             string login = txtLogin.Text;
             string senha = txtSenha.Text;
-            kiccEntitiesBanco ef = new kiccEntitiesBanco();
+            kiccEntitiesProjeto ef = new kiccEntitiesProjeto();
             tb_administrador adm = ef.tb_administrador.Where(busca => busca.ds_login == login && busca.ds_senha == senha).FirstOrDefault();
 
 
@@ -39,7 +40,7 @@ namespace Projeto
                 
                 Response.Redirect("Default.aspx");
 
-
+                lblMsg.Text = "";
             }
 
         }

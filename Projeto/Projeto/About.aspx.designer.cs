@@ -13,15 +13,6 @@ namespace Projeto {
     public partial class About {
         
         /// <summary>
-        /// Controle lblt.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblt;
-        
-        /// <summary>
         /// Controle GridView1.
         /// </summary>
         /// <remarks>
@@ -31,12 +22,12 @@ namespace Projeto {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// Controle EntityDataSourceProduto.
+        /// Controle EntityDataSource1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceProduto;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
     }
 }

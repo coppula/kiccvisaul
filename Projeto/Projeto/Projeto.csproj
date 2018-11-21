@@ -135,18 +135,23 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="ModelProduto.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelProduto.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Login.aspx" />
-    <Content Include="ModelProduto.edmx.diagram">
-      <DependentUpon>ModelProduto.edmx</DependentUpon>
+    <Content Include="ModelBanco.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBanco.edmx</DependentUpon>
+      <LastGenOutput>ModelBanco.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelBanco.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBanco.edmx</DependentUpon>
+      <LastGenOutput>ModelBanco.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\dist\jquery.maskMoney.js" />
+    <Content Include="Scripts\dist\jquery.maskMoney.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -248,21 +253,22 @@
     <Content Include="Content\bootstrap\bootstrap.scss" />
     <Content Include="Content\bootstrap\bootstrap-reboot.scss" />
     <Content Include="Content\bootstrap\bootstrap-grid.scss" />
+    <EntityDeploy Include="ModelBanco.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelBanco.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ModelBanco.edmx.diagram">
+      <DependentUpon>ModelBanco.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="ModelProduto.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelProduto.edmx</DependentUpon>
-      <LastGenOutput>ModelProduto.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ModelProduto.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelProduto.edmx</DependentUpon>
-      <LastGenOutput>ModelProduto.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery.mask.js" />
+    <Content Include="Scripts\jquery.mask.min.js" />
+    <Content Include="Scripts\jquery.maskMoney.js" />
+    <Content Include="Scripts\jquery.maskMoney.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
@@ -333,20 +339,20 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ModelProduto.Context.cs">
+    <Compile Include="ModelBanco.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelProduto.Context.tt</DependentUpon>
+      <DependentUpon>ModelBanco.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelProduto.cs">
+    <Compile Include="ModelBanco.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelProduto.tt</DependentUpon>
+      <DependentUpon>ModelBanco.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelProduto.Designer.cs">
+    <Compile Include="ModelBanco.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelProduto.edmx</DependentUpon>
+      <DependentUpon>ModelBanco.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -364,22 +370,22 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="tb_administrador.cs">
-      <DependentUpon>ModelProduto.tt</DependentUpon>
+      <DependentUpon>ModelBanco.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_categoria.cs">
-      <DependentUpon>ModelProduto.tt</DependentUpon>
+      <DependentUpon>ModelBanco.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_cliente.cs">
-      <DependentUpon>ModelProduto.tt</DependentUpon>
+      <DependentUpon>ModelBanco.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_compra.cs">
-      <DependentUpon>ModelProduto.tt</DependentUpon>
+      <DependentUpon>ModelBanco.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_endereco.cs">
-      <DependentUpon>ModelProduto.tt</DependentUpon>
+      <DependentUpon>ModelBanco.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_produto.cs">
-      <DependentUpon>ModelProduto.tt</DependentUpon>
+      <DependentUpon>ModelBanco.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

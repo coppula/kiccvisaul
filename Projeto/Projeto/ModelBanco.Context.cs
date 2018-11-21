@@ -13,10 +13,10 @@ namespace Projeto
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class kiccEntitiesBanco : DbContext
+    public partial class kiccEntitiesProjeto : DbContext
     {
-        public kiccEntitiesBanco()
-            : base("name=kiccEntitiesBanco")
+        public kiccEntitiesProjeto()
+            : base("name=kiccEntitiesProjeto")
         {
         }
     

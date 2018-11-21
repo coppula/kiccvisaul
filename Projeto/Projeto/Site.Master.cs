@@ -11,12 +11,12 @@ namespace Projeto
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["idadministrador"] == null)
+            {
+               Response.Redirect("Login.aspx");
+            }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Session.RemoveAll();
-        }
+        
     }
 }

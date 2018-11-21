@@ -15,14 +15,17 @@ namespace Projeto
     public partial class tb_cliente
     {
         public int id_cliente { get; set; }
-        public int cd_cpf { get; set; }
+        public string cd_cpf { get; set; }
         public string nm_cliente { get; set; }
+        public Nullable<System.DateTime> dt_nascimento { get; set; }
         public string ds_nivel_de_acesso { get; set; }
         public string login { get; set; }
         public string senha { get; set; }
         public string email { get; set; }
         public string nm_celular { get; set; }
         public string nm_telefone { get; set; }
+        public string cartao_de_credito { get; set; }
+        public string ativo { get; set; }
         public Nullable<int> id_endereco { get; set; }
     }
 }

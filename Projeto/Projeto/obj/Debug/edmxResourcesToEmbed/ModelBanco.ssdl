@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kiccEntitiesBanco.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_administrador">
+    <Key>
+      <PropertyRef Name="id_administrador" />
+    </Key>
+    <Property Name="id_administrador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ds_email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ds_login" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ds_senha" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ds_nivel_de_acesso" Type="enum" />
+  </EntityType>
+  <EntityType Name="tb_categoria">
+    <Key>
+      <PropertyRef Name="id_categoria" />
+    </Key>
+    <Property Name="id_categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nm_categoria" Type="varchar" MaxLength="255" />
+    <Property Name="ds_categoria" Type="text" />
+  </EntityType>
+  <EntityType Name="tb_cliente">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cd_cpf" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="nm_cliente" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="dt_nascimento" Type="date" />
+    <Property Name="ds_nivel_de_acesso" Type="enum" />
+    <Property Name="login" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="senha" Type="varchar" MaxLength="255" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="nm_celular" Type="varchar" MaxLength="13" />
+    <Property Name="nm_telefone" Type="varchar" MaxLength="12" />
+    <Property Name="cartao_de_credito" Type="varchar" MaxLength="60" />
+    <Property Name="ativo" Type="enum" />
+    <Property Name="id_endereco" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_compra">
+    <Key>
+      <PropertyRef Name="id_compra" />
+    </Key>
+    <Property Name="id_compra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dt_compra" Type="date" Nullable="false" />
+    <Property Name="id_cliente" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_endereco">
+    <Key>
+      <PropertyRef Name="id_endereco" />
+    </Key>
+    <Property Name="id_endereco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cep" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="logradouro" Type="varchar" MaxLength="255" />
+    <Property Name="numero" Type="varchar" MaxLength="100" />
+    <Property Name="cidade" Type="varchar" MaxLength="255" />
+    <Property Name="estado" Type="varchar" MaxLength="255" />
+    <Property Name="pais" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'def.kicc.tb_envolve' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tb_envolve">
+          <Property Name="qt_produtos" Type="int" />
+          <Property Name="id_produto" Type="int" />
+          <Property Name="id_compra" Type="int" />
+        </EntityType>-->
+  <EntityType Name="tb_produto">
+    <Key>
+      <PropertyRef Name="id_produto" />
+    </Key>
+    <Property Name="id_produto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nm_produto" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ds_produto" Type="text" />
+    <Property Name="nm_marca" Type="varchar" MaxLength="255" />
+    <Property Name="vl_preco" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="vl_preco_promocional" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="qt_produto" Type="int" Nullable="false" />
+    <Property Name="ds_peso" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ds_ativo" Type="tinyint" />
+    <Property Name="dt_validade" Type="date" />
+    <Property Name="image1" Type="varchar" MaxLength="255" />
+    <Property Name="image2" Type="varchar" MaxLength="255" />
+    <Property Name="image3" Type="varchar" MaxLength="255" />
+    <Property Name="id_categoria" Type="int" />
+  </EntityType>
+  <EntityContainer Name="kiccEntitiesBancoStoreContainer">
+    <EntitySet Name="tb_administrador" EntityType="Self.tb_administrador" Schema="kicc" store:Type="Tables" />
+    <EntitySet Name="tb_categoria" EntityType="Self.tb_categoria" Schema="kicc" store:Type="Tables" />
+    <EntitySet Name="tb_cliente" EntityType="Self.tb_cliente" Schema="kicc" store:Type="Tables" />
+    <EntitySet Name="tb_compra" EntityType="Self.tb_compra" Schema="kicc" store:Type="Tables" />
+    <EntitySet Name="tb_endereco" EntityType="Self.tb_endereco" Schema="kicc" store:Type="Tables" />
+    <EntitySet Name="tb_produto" EntityType="Self.tb_produto" Schema="kicc" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

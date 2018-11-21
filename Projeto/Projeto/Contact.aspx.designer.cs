@@ -22,12 +22,12 @@ namespace Projeto {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// Controle EntityDataSourceUsuario.
+        /// Controle EntityDataSource1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceUsuario;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
     }
 }

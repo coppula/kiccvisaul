@@ -33,6 +33,9 @@ namespace Projeto
             // pronto para a produção, utilize a ferramenta de build em https://modernizr.com para escolher somente os testes que precisa
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                             "~/Scripts/modernizr-*"));
+
+            
+
         }
     }
 }

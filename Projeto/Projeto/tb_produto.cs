@@ -19,9 +19,11 @@ namespace Projeto
         public string ds_produto { get; set; }
         public string nm_marca { get; set; }
         public decimal vl_preco { get; set; }
+        public decimal vl_preco_promocional { get; set; }
         public int qt_produto { get; set; }
         public Nullable<decimal> ds_peso { get; set; }
         public Nullable<sbyte> ds_ativo { get; set; }
+        public Nullable<System.DateTime> dt_validade { get; set; }
         public string image1 { get; set; }
         public string image2 { get; set; }
         public string image3 { get; set; }

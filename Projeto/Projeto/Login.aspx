@@ -28,8 +28,7 @@ body {
 	background: #092756;
 	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
 	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	
 	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
 }
@@ -59,16 +58,17 @@ input {
 	-webkit-transition: box-shadow .5s ease;
 	-moz-transition: box-shadow .5s ease;
 	-o-transition: box-shadow .5s ease;
-	-ms-transition: box-shadow .5s ease;
+	
 	transition: box-shadow .5s ease;
 }
 input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
 </style>
 </head>
 <body>
-    <asp:Label ID="lblMsg" runat="server" Text="Label"></asp:Label>
+    
     <div class="login">
-        <h3 class="text-center text-white pt-5">Login form</h3>
+        <h3 class="text-center text-white pt-5" >
+            <asp:Label ID="lblMsg" runat="server" ></asp:Label></h3>
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
@@ -78,14 +78,24 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
                             <div class="form-group">
                             <asp:Label ID="lblLogin" runat="server" Text="Login" class="text-info"></asp:Label>
                                 <asp:TextBox ID="txtLogin" runat="server" class="form-control"></asp:TextBox>
-                                
+                                <asp:RequiredFieldValidator id="RequiredFieldValidator4" runat="server"
+  ControlToValidate="txtLogin"
+  ErrorMessage="Preencha esse Campo."
+  ForeColor="Red">
+           
+</asp:RequiredFieldValidator>
                             </div>
                             <div class="form-group">
                                  <asp:Label ID="lblSenha" runat="server" Text="Senha" class="text-info"></asp:Label>
                                 <asp:TextBox ID="txtSenha" runat="server" class="form-control"></asp:TextBox>
-                               
+                                <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server"
+  ControlToValidate="txtSenha"
+  ErrorMessage="Preencha esse Campo."
+  ForeColor="Red">
+           
+</asp:RequiredFieldValidator>
                             </div>
-                           <asp:Button ID="btnLogar" runat="server" Text="Button" class="btn btn-primary btn-block btn-large" OnClick="btnLogar_Click1" />
+                           <asp:Button ID="btnLogar" runat="server" Text="Logar" class="btn btn-primary btn-block btn-large" OnClick="btnLogar_Click1" />
                             
                         </form>
                     </div>

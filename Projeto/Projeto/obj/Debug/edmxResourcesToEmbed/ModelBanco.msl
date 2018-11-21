@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="kiccEntitiesBancoStoreContainer" CdmEntityContainer="kiccEntitiesProjeto">
+    <EntitySetMapping Name="tb_administrador">
+      <EntityTypeMapping TypeName="kiccEntitiesBanco.tb_administrador">
+        <MappingFragment StoreEntitySet="tb_administrador">
+          <ScalarProperty Name="id_administrador" ColumnName="id_administrador" />
+          <ScalarProperty Name="ds_email" ColumnName="ds_email" />
+          <ScalarProperty Name="ds_login" ColumnName="ds_login" />
+          <ScalarProperty Name="ds_senha" ColumnName="ds_senha" />
+          <ScalarProperty Name="ds_nivel_de_acesso" ColumnName="ds_nivel_de_acesso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_categoria">
+      <EntityTypeMapping TypeName="kiccEntitiesBanco.tb_categoria">
+        <MappingFragment StoreEntitySet="tb_categoria">
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="nm_categoria" ColumnName="nm_categoria" />
+          <ScalarProperty Name="ds_categoria" ColumnName="ds_categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_cliente">
+      <EntityTypeMapping TypeName="kiccEntitiesBanco.tb_cliente">
+        <MappingFragment StoreEntitySet="tb_cliente">
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="cd_cpf" ColumnName="cd_cpf" />
+          <ScalarProperty Name="nm_cliente" ColumnName="nm_cliente" />
+          <ScalarProperty Name="dt_nascimento" ColumnName="dt_nascimento" />
+          <ScalarProperty Name="ds_nivel_de_acesso" ColumnName="ds_nivel_de_acesso" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="nm_celular" ColumnName="nm_celular" />
+          <ScalarProperty Name="nm_telefone" ColumnName="nm_telefone" />
+          <ScalarProperty Name="cartao_de_credito" ColumnName="cartao_de_credito" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="id_endereco" ColumnName="id_endereco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_compra">
+      <EntityTypeMapping TypeName="kiccEntitiesBanco.tb_compra">
+        <MappingFragment StoreEntitySet="tb_compra">
+          <ScalarProperty Name="id_compra" ColumnName="id_compra" />
+          <ScalarProperty Name="dt_compra" ColumnName="dt_compra" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_endereco">
+      <EntityTypeMapping TypeName="kiccEntitiesBanco.tb_endereco">
+        <MappingFragment StoreEntitySet="tb_endereco">
+          <ScalarProperty Name="id_endereco" ColumnName="id_endereco" />
+          <ScalarProperty Name="cep" ColumnName="cep" />
+          <ScalarProperty Name="logradouro" ColumnName="logradouro" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_produto">
+      <EntityTypeMapping TypeName="kiccEntitiesBanco.tb_produto">
+        <MappingFragment StoreEntitySet="tb_produto">
+          <ScalarProperty Name="id_produto" ColumnName="id_produto" />
+          <ScalarProperty Name="nm_produto" ColumnName="nm_produto" />
+          <ScalarProperty Name="ds_produto" ColumnName="ds_produto" />
+          <ScalarProperty Name="nm_marca" ColumnName="nm_marca" />
+          <ScalarProperty Name="vl_preco" ColumnName="vl_preco" />
+          <ScalarProperty Name="vl_preco_promocional" ColumnName="vl_preco_promocional" />
+          <ScalarProperty Name="qt_produto" ColumnName="qt_produto" />
+          <ScalarProperty Name="ds_peso" ColumnName="ds_peso" />
+          <ScalarProperty Name="ds_ativo" ColumnName="ds_ativo" />
+          <ScalarProperty Name="dt_validade" ColumnName="dt_validade" />
+          <ScalarProperty Name="image1" ColumnName="image1" />
+          <ScalarProperty Name="image2" ColumnName="image2" />
+          <ScalarProperty Name="image3" ColumnName="image3" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
